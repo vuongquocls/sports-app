@@ -23,6 +23,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-family);
+}
+
+#root {
   display: flex;
   flex-direction: column;
   height: 100vh;
