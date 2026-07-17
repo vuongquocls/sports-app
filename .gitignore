@@ -3,6 +3,10 @@ strava_api_credentials.txt
 deploy_vps.py
 check_sync_error.py
 inspect_json_full.py
+firebase_key.json
+backend/firebase_key.json
+backend/.env
+frontend/.env
 .DS_Store
 __pycache__/
 *.log
