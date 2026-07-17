@@ -1,6 +1,7 @@
 .venv/
 strava_api_credentials.txt
 deploy_vps.py
+deploy_vps_multi.py
 check_sync_error.py
 inspect_json_full.py
 firebase_key.json
