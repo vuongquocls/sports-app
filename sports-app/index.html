@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Giáo án Tập luyện Strava - Vương Quốc</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d0e12">
+  <!-- iOS support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Luyện Tập">
+</head>
+<body>
+
+  <!-- App Header -->
+  <header class="app-header">
+    <h1 id="app-title">GIÁO ÁN LUYỆN TẬP 8 TUẦN</h1>
+    <p>Mục tiêu: HM 1:35 | Bơi 1km | Giảm cân 68kg → 62kg</p>
+  </header>
+
+  <!-- App Content Area -->
+  <main class="app-content">
+
+    <!-- Tab 1: Hôm nay -->
+    <section id="tab-today" class="tab-panel active">
+      <div class="today-header">
+        <div class="today-date" id="current-date">Thứ Hai, 20/07</div>
+        <div class="weight-target" id="today-weight-target">Mục tiêu: 68.0 kg</div>
+      </div>
+      
+      <div class="card" id="today-workout-card">
+        <div class="card-title">
+          <span>BÀI TẬP HÔM NAY</span>
+          <span id="today-badge" class="badge badge-run">Chạy bộ</span>
+        </div>
+        <div class="workout-main">
+          <div class="workout-name" id="today-workout-name">Chạy Intervals</div>
+          <div class="workout-desc" id="today-workout-desc">Warm up: 1.5km. Intervals: 6x400m @ 4:10/km (Rest 90s). Cool down: 1.5km. Focus on high cadence.</div>
+        </div>
+        <button class="btn-complete" id="btn-complete-today" onclick="toggleTodayWorkout()">Đánh dấu Hoàn thành</button>
+      </div>
+
+      <div class="card" id="sleep-log-card">
+        <div class="card-title">
+          <span>GHI NHẬN GIẤC NGỦ ĐÊM QUA</span>
+          <span style="font-size: 18px;">🌙</span>
+        </div>
+        <div style="margin: 8px 0 16px 0;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-size: 14px; color: var(--text-secondary);">Chất lượng giấc ngủ:</span>
+            <span id="sleep-score-label" style="font-weight: 700; color: var(--accent-swim);">75 điểm (Tốt)</span>
+          </div>
+          <input type="range" id="sleep-score-input" min="0" max="100" value="75" style="width: 100%; accent-color: var(--accent-swim);" oninput="updateSleepScoreLabel(this.value)">
+        </div>
+        <button class="btn-complete" id="btn-save-sleep" onclick="saveSleepScore()" style="background: transparent; border: 2px solid var(--accent-swim); color: var(--accent-swim); font-size: 14px; padding: 10px; width: 100%;">Lưu Chỉ Số Giấc Ngủ</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Chỉ số Dinh dưỡng & Cân nặng</div>
+        <div style="font-size: 14px; line-height: 1.6; color: var(--text-secondary);">
+          <p>• <strong>Kế hoạch calo:</strong> Ăn khoảng 1,700 - 1,800 kcal/ngày.</p>
+          <p>• <strong>Đạm (Protein):</strong> Ăn khoảng 110g - 130g đạm mỗi ngày để tránh mất cơ khi giảm cân.</p>
+          <p>• <strong>Uống nước:</strong> Ít nhất 2.5 - 3 lít nước mỗi ngày.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 2: Lịch trình -->
+    <section id="tab-schedule" class="tab-panel">
+      <div id="schedule-container">
+        <!-- Generated dynamically in app.js -->
+      </div>
+    </section>
+
+    <!-- Tab 3: Thống kê -->
+    <section id="tab-stats" class="tab-panel">
+      <div class="card">
+        <div class="card-title">Tiến trình Giảm cân (68kg → 62kg)</div>
+        <div style="margin: 10px 0;">
+          <svg class="weight-chart-svg" id="weight-chart" viewBox="0 0 500 120">
+            <!-- Background grids -->
+            <line x1="0" y1="20" x2="500" y2="20" stroke="#2e3244" stroke-dasharray="5,5" />
+            <line x1="0" y1="60" x2="500" y2="60" stroke="#2e3244" stroke-dasharray="5,5" />
+            <line x1="0" y1="100" x2="500" y2="100" stroke="#2e3244" stroke-dasharray="5,5" />
+            
+            <!-- Area & Line Path (drawn dynamically) -->
+            <path class="weight-area" id="weight-area-path" d="" />
+            <path class="weight-line" id="weight-line-path" d="" />
+            
+            <!-- Dots group -->
+            <g id="weight-dots-group"></g>
+          </svg>
+          <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--text-secondary); padding: 0 10px;">
+            <span>Bắt đầu (68kg)</span>
+            <span>Tuần 2</span>
+            <span>Tuần 4</span>
+            <span>Tuần 6</span>
+            <span>Tuần 8 (62kg)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Cự ly chạy dài cuối tuần (km)</div>
+        <div class="chart-container">
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">10</span>
+            <div class="chart-bar" style="height: 50%;"></div>
+            <span class="chart-bar-label">T1</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">12</span>
+            <div class="chart-bar" style="height: 60%;"></div>
+            <span class="chart-bar-label">T2</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">14</span>
+            <div class="chart-bar" style="height: 70%;"></div>
+            <span class="chart-bar-label">T3</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">10</span>
+            <div class="chart-bar" style="height: 50%; opacity: 0.6;"></div>
+            <span class="chart-bar-label">T4</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">16</span>
+            <div class="chart-bar" style="height: 80%;"></div>
+            <span class="chart-bar-label">T5</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">18</span>
+            <div class="chart-bar" style="height: 90%;"></div>
+            <span class="chart-bar-label">T6</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">20</span>
+            <div class="chart-bar" style="height: 100%;"></div>
+            <span class="chart-bar-label">T7</span>
+          </div>
+          <div class="chart-bar-wrapper">
+            <span class="chart-bar-val">15</span>
+            <div class="chart-bar" style="height: 75%; background: var(--accent-run);"></div>
+            <span class="chart-bar-label">T8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" id="adaptability-card">
+        <div class="card-title">
+          <span>ĐIỀU CHỈNH GIÁO ÁN LINH HOẠT</span>
+          <span style="font-size: 18px;">⚙️</span>
+        </div>
+        <div style="font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
+          <p id="adapt-status">Đang tính toán dữ liệu tuần hiện tại...</p>
+          <div style="margin-top: 12px; display: flex; gap: 8px;">
+            <button class="btn-complete" id="btn-adapt-week" onclick="adaptTrainingPlan()" style="font-size: 13px; padding: 10px; flex: 1;">Tự động Điều chỉnh Tuần sau</button>
+            <button class="btn-complete" id="btn-reset-adapt" onclick="resetTrainingPlanAdaptation()" style="font-size: 13px; padding: 10px; background: transparent; border: 1px solid var(--text-secondary); color: var(--text-secondary); flex: 1;">Khôi phục Gốc</button>
+          </div>
+          <div id="adapt-log" style="margin-top: 12px; padding: 8px; background: var(--bg-secondary); border-radius: 8px; font-size: 11px; color: var(--accent-run); font-family: monospace; display: none; line-height: 1.4;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 4: Strava -->
+    <section id="tab-strava" class="tab-panel">
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">Tổng cự ly chạy 3T</div>
+          <div class="stat-value" id="strava-run-dist">315.9 km</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Pace chạy trung bình</div>
+          <div class="stat-value" id="strava-run-pace">6:43 /km</div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-label">Số buổi Pickleball</div>
+          <div class="stat-value" style="color: var(--accent-pickle);">34 buổi</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Số buổi Workout</div>
+          <div class="stat-value" style="color: var(--accent-strength);">30 buổi</div>
+        </div>
+      </div>
+
+      <h3 style="font-size: 16px; margin: 16px 0 10px 0;">Hoạt động Strava gần đây</h3>
+      <div id="strava-activities-list">
+        <div class="strava-activity-card">
+          <div class="strava-act-info">
+            <h4>Bơi chiều ngày 14/07</h4>
+            <p>14/07/2026</p>
+          </div>
+          <div class="strava-act-metrics">
+            <div class="strava-act-main-metric">500 m</div>
+            <div class="strava-act-sub-metric">23 phút</div>
+          </div>
+        </div>
+        <!-- Load dynamic activities here -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="app-nav">
+    <button class="nav-item active" onclick="switchTab('today')">
+      <div class="nav-icon">📅</div>
+      <span>Hôm nay</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('schedule')">
+      <div class="nav-icon">📝</div>
+      <span>Lịch trình</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('stats')">
+      <div class="nav-icon">📈</div>
+      <span>Thống kê</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('strava')">
+      <div class="nav-icon">⚡</div>
+      <span>Strava</span>
+    </button>
+  </nav>
+
+  <!-- Adjust Workout Modal -->
+  <div id="adjust-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Điều chỉnh bài tập</h3>
+        <span class="close-btn" onclick="closeAdjustModal()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p id="adjust-modal-subtitle" style="color: var(--text-secondary); margin-bottom: 16px; font-size: 13px;"></p>
+        
+        <div class="form-group">
+          <label for="adjust-action-type">Hành động:</label>
+          <select id="adjust-action-type" onchange="onAdjustActionChange()">
+            <option value="swap">Đổi ngày với bài tập khác trong tuần</option>
+            <option value="change">Thay đổi bài tập ngày này</option>
+          </select>
+        </div>
+        
+        <!-- Swap Section -->
+        <div id="adjust-swap-section" class="form-group">
+          <label for="adjust-swap-target">Đổi với Thứ:</label>
+          <select id="adjust-swap-target">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+        
+        <!-- Change Section -->
+        <div id="adjust-change-section" class="form-group" style="display: none;">
+          <label for="adjust-change-workout-type">Chọn bài tập mới:</label>
+          <select id="adjust-change-workout-type">
+            <option value="Run_Interval">Chạy bộ (Interval - Biến tốc)</option>
+            <option value="Run_Tempo">Chạy bộ (Tempo - Tốc độ đua)</option>
+            <option value="Run_Long">Chạy bộ (Long Run - Chạy dài)</option>
+            <option value="Swim">Bơi lội</option>
+            <option value="Pickleball">Chơi Pickleball</option>
+            <option value="Workout">Tập thể lực (Workout)</option>
+            <option value="Rest">Nghỉ ngơi</option>
+          </select>
+        </div>
+        
+        <button class="btn-complete" style="width: 100%; margin-top: 16px; font-size: 14px;" onclick="applyWorkoutAdjustment()">Áp dụng thay đổi</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

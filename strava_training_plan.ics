@@ -1,0 +1,456 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Antigravity Sports Expert//Strava Training Plan//VI
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Giao an Tap luyen Strava (Lich moi)
+X-WR-TIMEZONE:Asia/Ho_Chi_Minh
+BEGIN:VEVENT
+UID:w1_Mon_1@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260720T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260720T080000
+SUMMARY:Tuần 1 - Swim: Kỹ thuật
+DESCRIPTION:Khởi động: 100m. Kỹ thuật (drills): 6x50m tập trung lướt nước và sải tay dài. Thả lỏng: 100m. Tổng cự ly: 500m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w1_Tue_2@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260721T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260721T080000
+SUMMARY:Tuần 1 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Giữ nhịp di chuyển linh hoạt\, hỗ trợ sự dẻo dai và tim mạch.
+END:VEVENT
+BEGIN:VEVENT
+UID:w1_Wed_3@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260722T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260722T080000
+SUMMARY:Tuần 1 - Run: Chạy Intervals
+DESCRIPTION:Khởi động: 1.5km. Chạy nhanh (intervals): 6x400m @ pace 4:10/km (Nghỉ đi bộ 90s giữa các hiệp). Thả lỏng: 1.5km. Tập trung guồng chân nhanh.
+END:VEVENT
+BEGIN:VEVENT
+UID:w1_Thu_4@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260723T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260723T080000
+SUMMARY:Tuần 1 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Vận động linh hoạt\, phục hồi tích cực.
+END:VEVENT
+BEGIN:VEVENT
+UID:w1_Fri_5@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260724T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260724T080000
+SUMMARY:Tuần 1 - Thể lực: Cơ trọng tâm & Chân
+DESCRIPTION:Plank 3 hiệp x 1 phút\, Squats 3x15\, Lunges 3x12\, Kiễng gót chân (calf raises) 3x20. Giúp phòng ngừa chấn thương chân.
+END:VEVENT
+BEGIN:VEVENT
+UID:w1_Sat_6@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260725T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260725T080000
+SUMMARY:Tuần 1 - Run: Chạy dài (Long Run)
+DESCRIPTION:Chạy dài tích lũy 10km @ pace 6:00/km. 1km cuối tăng tốc lên pace 5:00/km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w1_Sun_7@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260726T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260726T080000
+SUMMARY:Tuần 1 - Swim: Sức bền & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 5x100m (nghỉ 30s giữa các hiệp). Tổng cự ly: 500m. Cân lại cân nặng (Mục tiêu: 67.2kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Mon_8@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260727T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260727T080000
+SUMMARY:Tuần 2 - Swim: Kỹ thuật thở
+DESCRIPTION:Khởi động: 100m. Kỹ thuật (drills): 8x50m tập thở mỗi 3 hoặc 5 sải tay. Thả lỏng: 100m. Tổng cự ly: 600m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Tue_9@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260728T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260728T080000
+SUMMARY:Tuần 2 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Vận động di chuyển năng động.
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Wed_10@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260729T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260729T080000
+SUMMARY:Tuần 2 - Run: Chạy Tempo
+DESCRIPTION:Khởi động: 1km. Chạy Tempo: 5km @ pace 4:55/km. Thả lỏng: 1km. Tăng ngưỡng lactate chịu đựng.
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Thu_11@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260730T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260730T080000
+SUMMARY:Tuần 2 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Tập trung giữ nhịp tim ổn định.
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Fri_12@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260731T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260731T080000
+SUMMARY:Tuần 2 - Thể lực: Sức bền cơ bắp
+DESCRIPTION:Plank 3 hiệp x 1 phút\, Bulgarian split squats 3x10\, Glute bridges (cầu cơ mông) 3x15. Sức mạnh chân đùi.
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Sat_13@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260801T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260801T080000
+SUMMARY:Tuần 2 - Run: Chạy dài (Long Run)
+DESCRIPTION:Chạy dài tích lũy 12km @ pace 5:55/km. Tập thở đều. 1km cuối tăng tốc lên pace 4:50/km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w2_Sun_14@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260802T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260802T080000
+SUMMARY:Tuần 2 - Swim: Sức bền & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 3x200m (nghỉ 45s giữa các hiệp). Tổng cự ly: 600m. Cân lại cân nặng (Mục tiêu: 66.5kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Mon_15@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260803T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260803T080000
+SUMMARY:Tuần 3 - Swim: Kỹ thuật kéo nước
+DESCRIPTION:Khởi động: 100m. Kỹ thuật (drills): 4x100m tập trung vào pha kéo nước (catch & pull). Thả lỏng: 100m. Tổng cự ly: 600m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Tue_16@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260804T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260804T080000
+SUMMARY:Tuần 3 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Cải thiện phản xạ và sức bền.
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Wed_17@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260805T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260805T080000
+SUMMARY:Tuần 3 - Run: Chạy Intervals
+DESCRIPTION:Khởi động: 1.5km. Chạy nhanh (intervals): 5x800m @ pace 4:20/km (Nghỉ đi bộ 2 phút giữa các hiệp). Thả lỏng: 1.5km. Tăng VO2 Max.
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Thu_18@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260806T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260806T080000
+SUMMARY:Tuần 3 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Bài tập di chuyển hiếu khí tốt.
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Fri_19@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260807T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260807T080000
+SUMMARY:Tuần 3 - Thể lực: Core & Thăng bằng
+DESCRIPTION:Plank 3 hiệp x 1 phút\, Single-leg deadlifts 3x10\, Side planks (plank nghiêng) 3x45s. Ngăn ngừa chấn thương khớp.
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Sat_20@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260808T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260808T080000
+SUMMARY:Tuần 3 - Run: Chạy dài (Long Run)
+DESCRIPTION:Chạy dài tích lũy 14km @ pace 5:50/km. Bổ sung điện giải nếu trời nóng. 2km cuối chạy pace 5:00/km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w3_Sun_21@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260809T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260809T080000
+SUMMARY:Tuần 3 - Swim: Sức bền & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 1x300m + 4x100m (nghỉ 30s giữa các hiệp). Tổng cự ly: 700m. Cân lại cân nặng (Mục tiêu: 65.7kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Mon_22@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260810T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260810T080000
+SUMMARY:Tuần 4 - Swim: Phục hồi nhẹ nhàng
+DESCRIPTION:Khởi động: 100m. Bơi thả lỏng nhẹ nhàng 300m. Thả lỏng: 100m. Tổng cự ly: 500m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Tue_23@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260811T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260811T080000
+SUMMARY:Tuần 4 - Cross-training: Pickleball nhẹ
+DESCRIPTION:Chơi Pickleball nhẹ nhàng khoảng 1 tiếng\, tránh vận động quá sức.
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Wed_24@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260812T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260812T080000
+SUMMARY:Tuần 4 - Run: Chạy Tempo ngắn
+DESCRIPTION:Khởi động: 1.5km. Chạy Tempo ngắn: 3km @ pace 4:45/km. Thả lỏng: 1.5km. Kiểm tra cảm giác cơ thể.
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Thu_25@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260813T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260813T080000
+SUMMARY:Tuần 4 - Cross-training: Pickleball nhẹ
+DESCRIPTION:Chơi Pickleball nhẹ nhàng dưỡng sức.
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Fri_26@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260814T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260814T080000
+SUMMARY:Tuần 4 - Thể lực: Giãn cơ & Core
+DESCRIPTION:Planks\, bird-dogs\, dead-bugs. 30 phút rèn cơ bụng và cơ liên sườn.
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Sat_27@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260815T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260815T080000
+SUMMARY:Tuần 4 - Run: Chạy đều
+DESCRIPTION:Chạy đều 10km @ pace 5:50/km. Giữ nhịp tim nhẹ nhàng ở Zone 2 phục hồi.
+END:VEVENT
+BEGIN:VEVENT
+UID:w4_Sun_28@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260816T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260816T080000
+SUMMARY:Tuần 4 - Swim: Bơi bền nhẹ & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 2x400m (nghỉ 1 phút giữa các hiệp). Tổng cự ly: 800m. Cân lại cân nặng (Mục tiêu: 65.0kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Mon_29@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260817T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260817T080000
+SUMMARY:Tuần 5 - Swim: Cảm giác nước
+DESCRIPTION:Khởi động: 100m. Drills: 6x50m bơi nắm đấm tay (fist-drills) để cảm nhận lực cản nước. Tổng cự ly: 700m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Tue_30@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260818T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260818T080000
+SUMMARY:Tuần 5 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Di chuyển linh hoạt bước nhỏ.
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Wed_31@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260819T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260819T080000
+SUMMARY:Tuần 5 - Run: Chạy Intervals
+DESCRIPTION:Khởi động: 2km. Chạy nhanh (intervals): 6x800m @ pace 4:20/km (Nghỉ đi bộ 2 phút). Thả lỏng: 1.5km. Tăng sức bền yếm khí.
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Thu_32@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260820T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260820T080000
+SUMMARY:Tuần 5 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Giữ nhịp tim ở vùng hiếu khí.
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Fri_33@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260821T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260821T080000
+SUMMARY:Tuần 5 - Thể lực: Toàn thân bổ trợ
+DESCRIPTION:Squats\, lunges\, plank\, chống đẩy. 45 phút tập luyện hỗ trợ đầu gối.
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Sat_34@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260822T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260822T080000
+SUMMARY:Tuần 5 - Run: Chạy dài (Long Run)
+DESCRIPTION:Chạy dài tích lũy 16km @ pace 5:45/km. 2km cuối tăng tốc lên pace 4:40/km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w5_Sun_35@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260823T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260823T080000
+SUMMARY:Tuần 5 - Swim: Sức bền & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 1x500m + 3x100m (nghỉ 30s giữa các hiệp). Tổng cự ly: 800m. Cân lại cân nặng (Mục tiêu: 64.2kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Mon_36@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260824T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260824T080000
+SUMMARY:Tuần 6 - Swim: Kỹ thuật khuỷu tay
+DESCRIPTION:Khởi động: 100m. Drills: 8x50m bơi khuỷu tay cao (high elbow). Thả lỏng: 100m. Tổng cự ly: 800m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Tue_37@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260825T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260825T080000
+SUMMARY:Tuần 6 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Tăng cường khả năng phản ứng nhanh.
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Wed_38@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260826T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260826T080000
+SUMMARY:Tuần 6 - Run: Chạy Tempo
+DESCRIPTION:Khởi động: 1.5km. Chạy Tempo: 6km @ pace 4:40/km. Thả lỏng: 1.5km. Luyện tốc độ đua ổn định.
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Thu_39@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260827T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260827T080000
+SUMMARY:Tuần 6 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Vận động linh hoạt nhịp tim nhẹ.
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Fri_40@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260828T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260828T080000
+SUMMARY:Tuần 6 - Thể lực: Sức mạnh cơ đùi
+DESCRIPTION:Tập lực chân đùi sau và bắp chuối hỗ trợ chạy bền bỉ. Tập luyện 45 phút.
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Sat_41@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260829T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260829T080000
+SUMMARY:Tuần 6 - Run: Chạy dài (Long Run)
+DESCRIPTION:Chạy dài tích lũy 18km @ pace 5:45/km. Luyện ý chí. 2km cuối chạy pace 4:35/km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w6_Sun_42@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260830T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260830T080000
+SUMMARY:Tuần 6 - Swim: Bơi bền & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 1x600m + 3x100m. Tổng cự ly: 900m. Cân lại cân nặng (Mục tiêu: 63.5kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Mon_43@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260831T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260831T080000
+SUMMARY:Tuần 7 - Swim: Kỹ thuật thở đều
+DESCRIPTION:Khởi động: 100m. Drills: 4x100m thở đều đặn mỗi 3 sải tay. Tổng cự ly: 800m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Tue_44@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260901T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260901T080000
+SUMMARY:Tuần 7 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Vận động cường độ vừa phải.
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Wed_45@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260902T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260902T080000
+SUMMARY:Tuần 7 - Run: Chạy Intervals
+DESCRIPTION:Khởi động: 2km. Chạy nhanh (intervals): 5x1000m @ pace 4:15/km (Nghỉ đi bộ 3 phút). Thả lỏng: 1.5km. Bài tập VO2 Max đỉnh cao.
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Thu_46@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260903T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260903T080000
+SUMMARY:Tuần 7 - Cross-training: Pickleball
+DESCRIPTION:Chơi Pickleball 1-2 tiếng. Agility và hồi phục nhẹ.
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Fri_47@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260904T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260904T080000
+SUMMARY:Tuần 7 - Thể lực: Kháng lực toàn thân
+DESCRIPTION:Chống đẩy\, squats\, lunges và bài tập core bụng liên sườn. 45 phút.
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Sat_48@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260905T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260905T080000
+SUMMARY:Tuần 7 - Run: Chạy dài (Long Run)
+DESCRIPTION:Chạy dài tích lũy 20km @ pace 5:40/km (Mô phỏng cự ly Half Marathon). 2km cuối tăng tốc lên pace 4:30/km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w7_Sun_49@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260906T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260906T080000
+SUMMARY:Tuần 7 - Swim: Sức bền 1km & Kiểm tra cân nặng
+DESCRIPTION:Bơi bền: 1x800m + 2x100m. Tổng cự ly: 1000m (1km)! Cân lại cân nặng (Mục tiêu: 62.7kg).
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Mon_50@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260907T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260907T080000
+SUMMARY:Tuần 8 - Swim: Dưỡng sức thả lỏng
+DESCRIPTION:Khởi động: 100m. Bơi nhẹ nhàng thư giãn 300m. Thả lỏng: 100m. Tổng cự ly: 500m.
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Tue_51@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260908T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260908T080000
+SUMMARY:Tuần 8 - Cross-training: Pickleball nhẹ
+DESCRIPTION:Chơi Pickleball rất nhẹ nhàng thư giãn trong 1 tiếng.
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Wed_52@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260909T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260909T080000
+SUMMARY:Tuần 8 - Run: Chạy thử tốc độ đua
+DESCRIPTION:Khởi động: 1.5km. Chạy 3km @ pace 4:30/km (Kiểm tra cảm giác pace mục tiêu). Thả lỏng: 1.5km.
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Thu_53@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260910T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260910T080000
+SUMMARY:Tuần 8 - Cross-training: Pickleball nhẹ
+DESCRIPTION:Chơi Pickleball rất nhẹ nhàng dưỡng sức.
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Fri_54@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260911T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260911T080000
+SUMMARY:Tuần 8 - Nghỉ ngơi hoàn toàn
+DESCRIPTION:Nghỉ ngơi thả lỏng hoàn toàn. Giãn cơ\, uống nhiều nước và nạp tinh bột phức tốt.
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Sat_55@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260912T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260912T080000
+SUMMARY:Tuần 8 - Run: CHẠY KIỂM TRA HALF MARATHON
+DESCRIPTION:Khởi động kỹ. Chạy kiểm tra 15km @ pace 4:40/km hoặc chạy đủ 21.1km để lập kỷ lục cá nhân!
+END:VEVENT
+BEGIN:VEVENT
+UID:w8_Sun_56@antigravity.sports.expert
+DTSTAMP:20260717T104504Z
+DTSTART;TZID=Asia/Ho_Chi_Minh:20260913T070000
+DTEND;TZID=Asia/Ho_Chi_Minh:20260913T080000
+SUMMARY:Tuần 8 - Swim: THỬ THÁCH BƠI 1KM LIÊN TỤC & Cân nặng
+DESCRIPTION:Thử thách bơi 1000m (1km) liên tục không nghỉ. Kiểm tra cân nặng cuối cùng (Mục tiêu: 62.0kg).
+END:VEVENT
+END:VCALENDAR
