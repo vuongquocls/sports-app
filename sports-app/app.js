@@ -829,6 +829,11 @@ function onAdjustActionChange() {
 
 // Default templates for workout types to construct title/desc dynamically
 const workoutTemplates = {
+  Run_Easy: {
+    type: "Run",
+    title: "Run: Chạy nhẹ (Easy Run)",
+    desc: "Chạy nhẹ nhàng phục hồi: 5-8km @ pace 6:15/km. Giữ nhịp tim ở vùng Zone 2 (hiếu khí nhẹ), thở đều thoải mái."
+  },
   Run_Interval: {
     type: "Run",
     title: "Run: Chạy Intervals",
