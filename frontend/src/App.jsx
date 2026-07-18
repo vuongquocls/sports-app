@@ -222,7 +222,7 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
 
     const days = {};
 
-    // Monday: Swim technique or Cycle recovery or Rest
+    // Monday
     if (hasSport("swim")) {
       const dist = 500 + i * 50;
       days.Mon = {
@@ -237,37 +237,49 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
         title: `Cycle: Hồi phục chân (Tuần ${i + 1})`,
         desc: `Đạp xe nhẹ nhàng giữ guồng chân đều (cadence 85-90) trong ${dist}km. Giúp tuần hoàn máu và hồi phục chân.`
       };
+    } else if (hasSport("stretch")) {
+      days.Mon = {
+        type: "Stretch",
+        title: `Stretch: Giãn cơ phục hồi & Yoga (Tuần ${i + 1})`,
+        desc: `Dành 30 phút thực hiện các động tác giãn cơ tĩnh sâu (hamstrings, quads, hips, lower back) kết hợp các tư thế Yoga kéo giãn cột sống. Giúp tăng độ dẻo dai và ngăn ngừa căng cơ.`
+      };
     } else {
       days.Mon = {
         type: "Rest",
-        title: "Nghỉ ngơi giãn cơ",
-        desc: "Nghỉ ngơi hoàn toàn. Thực hiện các bài căng cơ nhẹ nhàng toàn thân."
+        title: "Nghỉ ngơi phục hồi",
+        desc: "Nghỉ ngơi hoàn toàn. Thực hiện các bài giãn cơ tĩnh nhẹ nhàng tại nhà."
       };
     }
 
-    // Tuesday: Pickleball or Cycle intervals or Rest
+    // Tuesday
     if (hasSport("pickleball")) {
       days.Tue = {
         type: "Pickleball",
         title: "Pickleball: Cross-training",
         desc: "Chơi Pickleball di chuyển linh hoạt 1-2 tiếng. Giúp rèn phản xạ nhanh và sự dẻo dai."
       };
+    } else if (hasSport("boxing")) {
+      days.Tue = {
+        type: "Boxing",
+        title: `Boxing: Cardio & Phản xạ (Tuần ${i + 1})`,
+        desc: `Tập luyện 60 phút: Nhảy dây khởi động, 6 hiệp đấm bao cát (heavy bag drills), tập kỹ thuật đấm đơn/tổ hợp với đích đấm (pads) và các bài tập HIIT thể lực bổ trợ.`
+      };
     } else if (hasSport("cycle") && !hasSport("swim")) {
       const intervals = 4 + Math.floor(i / 2);
       days.Tue = {
         type: "Cycle",
-        title: `Cycle: Đạp xe biến tốc Intervals (Tuần ${i + 1})`,
+        title: `Cycle: Đạp biến tốc Intervals (Tuần ${i + 1})`,
         desc: `Khởi động 5km. Đạp nhanh cường độ cao: ${intervals}x2km (nghỉ 3 phút đạp nhẹ giữa mỗi hiệp). Đạp thả lỏng 3km.`
       };
     } else {
       days.Tue = {
         type: "Rest",
         title: "Nghỉ ngơi tích cực",
-        desc: "Đi bộ thư giãn 30 phút hoặc tập các động tác yoga kéo giãn nhẹ nhàng."
+        desc: "Đi bộ thư giãn 30 phút hoặc tập các động tác kéo giãn nhẹ nhàng."
       };
     }
 
-    // Wednesday: Quality Run or Cycle Tempo or Rest
+    // Wednesday
     if (hasSport("run")) {
       if ((i + 1) % 2 !== 0) {
         const reps = 5 + Math.floor(i / 2);
@@ -294,20 +306,33 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
         title: `Cycle: Đạp xe Tempo đều lực (Tuần ${i + 1})`,
         desc: `Đạp xe giữ tốc độ ổn định cường độ trung bình cao trong ${dist}km.`
       };
+    } else if (hasSport("boxing") && !hasSport("pickleball")) {
+      days.Wed = {
+        type: "Boxing",
+        title: `Boxing: Tập luyện kỹ thuật (Tuần ${i + 1})`,
+        desc: `Tập trung vào bộ chân di chuyển (footwork), né đòn (slipping & ducking) và thực hiện các đòn combo đấm phản phản phản kích trong 45 phút.`
+      };
     } else {
       days.Wed = {
         type: "Rest",
-        title: "Nghỉ ngơi phục hồi",
-        desc: "Nghỉ ngơi hoàn toàn, bổ sung nước và dinh dưỡng tốt."
+        title: "Nghỉ ngơi giữa tuần",
+        desc: "Nghỉ tập hồi sức cơ bắp, bù nước và ăn uống đầy đủ."
       };
     }
 
-    // Thursday: Pickleball or Cycle Zone 2 or Rest
+    // Thursday
     if (hasSport("pickleball")) {
       days.Thu = {
         type: "Pickleball",
         title: "Pickleball: Vận động phục hồi",
         desc: "Chơi Pickleball 1-2 tiếng vui vẻ nhẹ nhàng. Tránh quá sức."
+      };
+    } else if (hasSport("boxing") && hasSport("pickleball")) {
+      // Boxing on Thursday if pickleball took Tuesday
+      days.Thu = {
+        type: "Boxing",
+        title: `Boxing: Cardio & Phản xạ (Tuần ${i + 1})`,
+        desc: `Tập luyện 60 phút: Nhảy dây khởi động, 6 hiệp đấm bao cát (heavy bag drills), tập kỹ thuật đấm đơn/tổ hợp với đích đấm (pads) và các bài tập HIIT thể lực bổ trợ.`
       };
     } else if (hasSport("cycle") && hasSport("run")) {
       const dist = 20 + i * 2;
@@ -315,6 +340,12 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
         type: "Cycle",
         title: `Cycle: Đạp xe Zone 2 (Tuần ${i + 1})`,
         desc: `Đạp xe hiếu khí nhẹ nhàng tích lũy cơ địa ${dist}km.`
+      };
+    } else if (hasSport("stretch") && !hasSport("swim")) {
+      days.Thu = {
+        type: "Stretch",
+        title: `Stretch: Giãn cơ sâu toàn thân (Tuần ${i + 1})`,
+        desc: `Bài tập 30 phút tập trung vào các nhóm cơ thân dưới và lưng vai gáy để cải thiện biên độ chuyển động.`
       };
     } else {
       days.Thu = {
@@ -324,14 +355,22 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
       };
     }
 
-    // Friday: Always Strength Workout
-    days.Fri = {
-      type: "Workout",
-      title: "Thể lực: Kháng lực bổ trợ & Core",
-      desc: "Plank 3x60s, Squats 3x15, Lunges 3x12, Push-ups 3x12. Hỗ trợ sự thăng bằng và sức mạnh khớp chân gối phòng ngừa chấn thương."
-    };
+    // Friday
+    if (hasSport("strength")) {
+      days.Fri = {
+        type: "Strength",
+        title: `Strength: Tập Gym & Kháng lực (Tuần ${i + 1})`,
+        desc: `Tập luyện 45-60 phút. Các bài tập phức hợp (compound exercises): Squats, Deadlifts, Dumbbell Press, Dumbbell Row và Plank để tăng sức mạnh cơ bắp toàn thân.`
+      };
+    } else {
+      days.Fri = {
+        type: "Workout",
+        title: "Thể lực: Kháng lực bổ trợ & Core",
+        desc: "Plank 3x60s, Squats 3x15, Lunges 3x12, Push-ups 3x12. Hỗ trợ sự thăng bằng và sức mạnh khớp chân gối phòng ngừa chấn thương."
+      };
+    }
 
-    // Saturday: Long Run or Cycle Long Ride or Rest
+    // Saturday
     if (hasSport("run")) {
       const dist = 8 + i * 2;
       const longPace = formatPace(paceSeconds + 80);
@@ -352,12 +391,12 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
     } else {
       days.Sat = {
         type: "Rest",
-        title: "Nghỉ ngơi thư giãn",
-        desc: "Tận hưởng ngày nghỉ cuối tuần thoải mái."
+        title: "Nghỉ ngơi cuối tuần",
+        desc: "Nghỉ ngơi hoàn toàn để hồi phục cơ bắp."
       };
     }
 
-    // Sunday: Swim endurance or Cycle Zone 2 or Rest
+    // Sunday
     if (hasSport("swim")) {
       const dist = 500 + i * 50;
       days.Sun = {
@@ -373,6 +412,12 @@ function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) 
         type: "Cycle",
         title: `Cycle: Đạp xe hồi phục (Tuần ${i + 1})`,
         desc: `Đạp xe thư giãn nhẹ nhàng ${dist}km. Theo dõi cân nặng cuối tuần.`
+      };
+    } else if (hasSport("stretch")) {
+      days.Sun = {
+        type: "Stretch",
+        title: `Stretch: Giãn cơ & Thiền Yoga (Tuần ${i + 1})`,
+        desc: `Bài tập 30 phút kéo giãn sâu toàn bộ cơ bắp cột sống, hông đùi và vai gáy. Đo cân nặng ghi nhận tiến độ giảm cân.`
       };
     } else {
       days.Sun = {
@@ -1091,7 +1136,7 @@ export default function App() {
         <h1>GIÁO ÁN LUYỆN TẬP 8 TUẦN</h1>
         <p>
           Hội viên: {profile.displayName || "Chưa thiết lập"} | 
-          Môn tập: {(profile.sports || ["run", "swim", "pickleball"]).map(s => s === "run" ? "🏃Chạy" : s === "swim" ? "🏊Bơi" : s === "pickleball" ? "🏓Pickleball" : "🚴Đạp xe").join(", ")} | 
+          Môn tập: {(profile.sports || ["run", "swim", "pickleball"]).map(s => s === "run" ? "🏃Chạy" : s === "swim" ? "🏊Bơi" : s === "pickleball" ? "🏓Pickleball" : s === "cycle" ? "🚴Đạp xe" : s === "strength" ? "💪Sức mạnh" : s === "stretch" ? "🧘Giãn cơ" : "🥊Boxing").join(", ")} | 
           Cân nặng: {profile.weight}kg → {profile.targetWeight}kg
         </p>
       </header>
@@ -1427,7 +1472,7 @@ export default function App() {
                 <div className="settings-item">
                   <span className="settings-label">Môn tập luyện</span>
                   <span className="settings-value">
-                    {(profile.sports || ["run", "swim", "pickleball"]).map(s => s === "run" ? "Chạy bộ" : s === "swim" ? "Bơi lội" : s === "pickleball" ? "Pickleball" : "Đạp xe").join(", ")}
+                    {(profile.sports || ["run", "swim", "pickleball"]).map(s => s === "run" ? "Chạy bộ" : s === "swim" ? "Bơi lội" : s === "pickleball" ? "Pickleball" : s === "cycle" ? "Đạp xe" : s === "strength" ? "Sức mạnh" : s === "stretch" ? "Giãn cơ" : "Boxing").join(", ")}
                   </span>
                 </div>
                 <div className="settings-item">
@@ -1586,7 +1631,10 @@ export default function App() {
                   { id: "run", label: "🏃 Chạy bộ (Running)" },
                   { id: "swim", label: "🏊 Bơi lội (Swimming)" },
                   { id: "pickleball", label: "🏓 Pickleball" },
-                  { id: "cycle", label: "🚴 Đạp xe (Cycling)" }
+                  { id: "cycle", label: "🚴 Đạp xe (Cycling)" },
+                  { id: "strength", label: "💪 Sức mạnh (Strength)" },
+                  { id: "stretch", label: "🧘 Giãn cơ (Stretching)" },
+                  { id: "boxing", label: "🥊 Boxing" }
                 ].map(sport => {
                   const checked = onboardingProfile.sports?.includes(sport.id) || false;
                   return (
