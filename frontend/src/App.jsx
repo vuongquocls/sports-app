@@ -193,6 +193,201 @@ const vnDayNames = {
   Sun: "Chủ Nhật"
 };
 
+function generatePersonalizedSchedule(sports, weight, targetWeight, targetPace) {
+  let paceSeconds = 300; // default 5:00
+  if (targetPace) {
+    const parts = targetPace.split(":");
+    if (parts.length === 2) {
+      const min = parseInt(parts[0]);
+      const sec = parseInt(parts[1]);
+      if (!isNaN(min) && !isNaN(sec)) {
+        paceSeconds = min * 60 + sec;
+      }
+    }
+  }
+
+  const formatPace = (secs) => {
+    const m = Math.floor(secs / 60);
+    const s = Math.round(secs % 60);
+    return `${m}:${s < 10 ? "0" : ""}${s}`;
+  };
+
+  const hasSport = (s) => sports.includes(s);
+  const weeks = [];
+
+  for (let i = 0; i < 8; i++) {
+    const wStart = weight - (weight - targetWeight) * (i / 8);
+    const wEnd = weight - (weight - targetWeight) * ((i + 1) / 8);
+    const targetStr = `${wStart.toFixed(1)}kg -> ${wEnd.toFixed(1)}kg`;
+
+    const days = {};
+
+    // Monday: Swim technique or Cycle recovery or Rest
+    if (hasSport("swim")) {
+      const dist = 500 + i * 50;
+      days.Mon = {
+        type: "Swim",
+        title: `Swim: Kỹ thuật bơi tự do (Tuần ${i + 1})`,
+        desc: `Khởi động: 100m. Kỹ thuật (drills): 8x50m tập trung phối hợp tay, chân và thở đều. Thả lỏng: 100m. Tổng cự ly: ${dist}m.`
+      };
+    } else if (hasSport("cycle")) {
+      const dist = 15 + i * 2;
+      days.Mon = {
+        type: "Cycle",
+        title: `Cycle: Hồi phục chân (Tuần ${i + 1})`,
+        desc: `Đạp xe nhẹ nhàng giữ guồng chân đều (cadence 85-90) trong ${dist}km. Giúp tuần hoàn máu và hồi phục chân.`
+      };
+    } else {
+      days.Mon = {
+        type: "Rest",
+        title: "Nghỉ ngơi giãn cơ",
+        desc: "Nghỉ ngơi hoàn toàn. Thực hiện các bài căng cơ nhẹ nhàng toàn thân."
+      };
+    }
+
+    // Tuesday: Pickleball or Cycle intervals or Rest
+    if (hasSport("pickleball")) {
+      days.Tue = {
+        type: "Pickleball",
+        title: "Pickleball: Cross-training",
+        desc: "Chơi Pickleball di chuyển linh hoạt 1-2 tiếng. Giúp rèn phản xạ nhanh và sự dẻo dai."
+      };
+    } else if (hasSport("cycle") && !hasSport("swim")) {
+      const intervals = 4 + Math.floor(i / 2);
+      days.Tue = {
+        type: "Cycle",
+        title: `Cycle: Đạp xe biến tốc Intervals (Tuần ${i + 1})`,
+        desc: `Khởi động 5km. Đạp nhanh cường độ cao: ${intervals}x2km (nghỉ 3 phút đạp nhẹ giữa mỗi hiệp). Đạp thả lỏng 3km.`
+      };
+    } else {
+      days.Tue = {
+        type: "Rest",
+        title: "Nghỉ ngơi tích cực",
+        desc: "Đi bộ thư giãn 30 phút hoặc tập các động tác yoga kéo giãn nhẹ nhàng."
+      };
+    }
+
+    // Wednesday: Quality Run or Cycle Tempo or Rest
+    if (hasSport("run")) {
+      if ((i + 1) % 2 !== 0) {
+        const reps = 5 + Math.floor(i / 2);
+        const repDist = i < 4 ? "400m" : "800m";
+        const repPace = formatPace(paceSeconds - 20);
+        days.Wed = {
+          type: "Run",
+          title: `Run: Biến tốc Intervals (Tuần ${i + 1})`,
+          desc: `Khởi động: 1.5km. Chạy nhanh intervals: ${reps}x${repDist} @ pace ${repPace}/km (Nghỉ đi bộ 90s giữa các hiệp). Thả lỏng: 1.5km.`
+        };
+      } else {
+        const dist = 4 + Math.floor(i / 2);
+        const tempoPace = formatPace(paceSeconds + 20);
+        days.Wed = {
+          type: "Run",
+          title: `Run: Chạy Tempo ngưỡng lactate (Tuần ${i + 1})`,
+          desc: `Khởi động: 1.5km. Chạy Tempo đều lực: ${dist}km @ pace ${tempoPace}/km. Thả lỏng: 1km. Giúp tăng sức bền tốc độ.`
+        };
+      }
+    } else if (hasSport("cycle")) {
+      const dist = 25 + i * 3;
+      days.Wed = {
+        type: "Cycle",
+        title: `Cycle: Đạp xe Tempo đều lực (Tuần ${i + 1})`,
+        desc: `Đạp xe giữ tốc độ ổn định cường độ trung bình cao trong ${dist}km.`
+      };
+    } else {
+      days.Wed = {
+        type: "Rest",
+        title: "Nghỉ ngơi phục hồi",
+        desc: "Nghỉ ngơi hoàn toàn, bổ sung nước và dinh dưỡng tốt."
+      };
+    }
+
+    // Thursday: Pickleball or Cycle Zone 2 or Rest
+    if (hasSport("pickleball")) {
+      days.Thu = {
+        type: "Pickleball",
+        title: "Pickleball: Vận động phục hồi",
+        desc: "Chơi Pickleball 1-2 tiếng vui vẻ nhẹ nhàng. Tránh quá sức."
+      };
+    } else if (hasSport("cycle") && hasSport("run")) {
+      const dist = 20 + i * 2;
+      days.Thu = {
+        type: "Cycle",
+        title: `Cycle: Đạp xe Zone 2 (Tuần ${i + 1})`,
+        desc: `Đạp xe hiếu khí nhẹ nhàng tích lũy cơ địa ${dist}km.`
+      };
+    } else {
+      days.Thu = {
+        type: "Rest",
+        title: "Nghỉ dưỡng sức",
+        desc: "Thư giãn toàn thân chuẩn bị thể lực cho bài tập hôm sau."
+      };
+    }
+
+    // Friday: Always Strength Workout
+    days.Fri = {
+      type: "Workout",
+      title: "Thể lực: Kháng lực bổ trợ & Core",
+      desc: "Plank 3x60s, Squats 3x15, Lunges 3x12, Push-ups 3x12. Hỗ trợ sự thăng bằng và sức mạnh khớp chân gối phòng ngừa chấn thương."
+    };
+
+    // Saturday: Long Run or Cycle Long Ride or Rest
+    if (hasSport("run")) {
+      const dist = 8 + i * 2;
+      const longPace = formatPace(paceSeconds + 80);
+      days.Sat = {
+        type: "Run",
+        title: `Run: Chạy dài Long Run (Tuần ${i + 1})`,
+        desc: i === 7 
+          ? `CHẠY KIỂM TRA HM: Chạy dài 15km @ pace ${formatPace(paceSeconds + 10)} hoặc thử thách chạy đủ 21.1km để lập kỷ lục cá nhân!`
+          : `Chạy dài tích lũy sức bền ${dist}km @ pace ${longPace}/km. Giữ nhịp thở đều.`
+      };
+    } else if (hasSport("cycle")) {
+      const dist = 30 + i * 5;
+      days.Sat = {
+        type: "Cycle",
+        title: `Cycle: Đạp xe đường dài Long Ride (Tuần ${i + 1})`,
+        desc: `Đạp xe tích lũy bền bỉ quãng đường ${dist}km. Chú ý tư thế đạp xe thoải mái.`
+      };
+    } else {
+      days.Sat = {
+        type: "Rest",
+        title: "Nghỉ ngơi thư giãn",
+        desc: "Tận hưởng ngày nghỉ cuối tuần thoải mái."
+      };
+    }
+
+    // Sunday: Swim endurance or Cycle Zone 2 or Rest
+    if (hasSport("swim")) {
+      const dist = 500 + i * 50;
+      days.Sun = {
+        type: "Swim",
+        title: `Swim: Bơi bền thử thách (Tuần ${i + 1})`,
+        desc: i === 7
+          ? "Thử thách bơi 1000m (1km) liên tục không nghỉ để kết thúc giáo án!"
+          : `Bơi bền quãng đường dài: 3x200m bơi liên tục (nghỉ 45s). Tổng cự ly bơi: ${dist}m. Kiểm tra cân nặng.`
+      };
+    } else if (hasSport("cycle") && !hasSport("run")) {
+      const dist = 20 + i * 2;
+      days.Sun = {
+        type: "Cycle",
+        title: `Cycle: Đạp xe hồi phục (Tuần ${i + 1})`,
+        desc: `Đạp xe thư giãn nhẹ nhàng ${dist}km. Theo dõi cân nặng cuối tuần.`
+      };
+    } else {
+      days.Sun = {
+        type: "Rest",
+        title: "Nghỉ ngơi & Đo cân nặng",
+        desc: "Đo cân nặng để ghi nhận tiến độ giảm cân tuần này."
+      };
+    }
+
+    weeks.push({ target: targetStr, days });
+  }
+
+  return weeks;
+}
+
 export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -204,7 +399,8 @@ export default function App() {
     displayName: "",
     weight: 68,
     targetWeight: 62,
-    targetPace: "4:30"
+    targetPace: "4:30",
+    sports: ["run", "swim", "pickleball"]
   });
   const [weeks, setWeeks] = useState([]);
   const [activities, setActivities] = useState([]);
@@ -230,8 +426,11 @@ export default function App() {
     displayName: "",
     weight: 68,
     targetWeight: 62,
-    targetPace: "4:30"
+    targetPace: "4:30",
+    sports: ["run", "swim", "pickleball"]
   });
+  const [recreateScheduleOnSubmit, setRecreateScheduleOnSubmit] = useState(false);
+  const [isOnboardingMode, setIsOnboardingMode] = useState(true);
 
   // 1. Detect Strava OAuth redirect callback
   useEffect(() => {
@@ -299,9 +498,14 @@ export default function App() {
         const data = snap.data();
         if (data.profile) {
           setProfile(data.profile);
+        } else {
+          setIsOnboardingMode(true);
+          setRecreateScheduleOnSubmit(true);
+          setShowOnboarding(true);
         }
       } else {
-        // Show onboarding if no profile doc is set yet
+        setIsOnboardingMode(true);
+        setRecreateScheduleOnSubmit(true);
         setShowOnboarding(true);
       }
     });
@@ -310,10 +514,24 @@ export default function App() {
     const scheduleCol = collection(db, "users", uid, "schedule");
     const unsubSchedule = onSnapshot(scheduleCol, async (snap) => {
       if (snap.empty) {
-        // Seed default schedule for this user
-        console.log("Seeding default schedule weeks...");
+        console.log("Seeding personalized schedule weeks...");
+        const userSnap = await getDoc(userDocRef);
+        let sports = ["run", "swim", "pickleball"];
+        let weight = 68;
+        let targetWeight = 62;
+        let targetPace = "4:30";
+        if (userSnap.exists()) {
+          const uData = userSnap.data();
+          if (uData.profile) {
+            sports = uData.profile.sports || sports;
+            weight = uData.profile.weight || weight;
+            targetWeight = uData.profile.targetWeight || targetWeight;
+            targetPace = uData.profile.targetPace || targetPace;
+          }
+        }
+        const generated = generatePersonalizedSchedule(sports, weight, targetWeight, targetPace);
         const batch = writeBatch(db);
-        defaultWeeksData.forEach((week, index) => {
+        generated.forEach((week, index) => {
           const weekRef = doc(db, "users", uid, "schedule", `week_${index + 1}`);
           batch.set(weekRef, week);
         });
@@ -640,16 +858,42 @@ export default function App() {
       alert("Vui lòng điền họ tên hiển thị!");
       return;
     }
+    if (!onboardingProfile.sports || onboardingProfile.sports.length === 0) {
+      alert("Vui lòng chọn ít nhất một môn thể thao tập luyện!");
+      return;
+    }
+    
     const userDocRef = doc(db, "users", user.uid);
-    await setDoc(userDocRef, {
+    const batch = writeBatch(db);
+    
+    // Save profile data
+    batch.set(userDocRef, {
       profile: {
         displayName: onboardingProfile.displayName,
         weight: parseFloat(onboardingProfile.weight),
         targetWeight: parseFloat(onboardingProfile.targetWeight),
         targetPace: onboardingProfile.targetPace,
+        sports: onboardingProfile.sports,
         createdAt: new Date().toISOString()
       }
     }, { merge: true });
+
+    // Recreate schedule if requested
+    if (recreateScheduleOnSubmit) {
+      console.log("Generating and writing personalized schedule...");
+      const generated = generatePersonalizedSchedule(
+        onboardingProfile.sports,
+        parseFloat(onboardingProfile.weight),
+        parseFloat(onboardingProfile.targetWeight),
+        onboardingProfile.targetPace
+      );
+      generated.forEach((week, index) => {
+        const weekRef = doc(db, "users", user.uid, "schedule", `week_${index + 1}`);
+        batch.set(weekRef, week);
+      });
+    }
+
+    await batch.commit();
     setShowOnboarding(false);
   };
 
@@ -845,7 +1089,11 @@ export default function App() {
       {/* App Header */}
       <header class="app-header">
         <h1>GIÁO ÁN LUYỆN TẬP 8 TUẦN</h1>
-        <p>Hội viên: {profile.displayName || "Chưa thiết lập"} | Mục tiêu: {profile.targetPace === "4:30" ? "HM 1:35" : `Pace ${profile.targetPace}`} | Cân nặng: {profile.weight}kg → {profile.targetWeight}kg</p>
+        <p>
+          Hội viên: {profile.displayName || "Chưa thiết lập"} | 
+          Môn tập: {(profile.sports || ["run", "swim", "pickleball"]).map(s => s === "run" ? "🏃Chạy" : s === "swim" ? "🏊Bơi" : s === "pickleball" ? "🏓Pickleball" : "🚴Đạp xe").join(", ")} | 
+          Cân nặng: {profile.weight}kg → {profile.targetWeight}kg
+        </p>
       </header>
 
       {/* Main Content panels */}
@@ -1177,6 +1425,12 @@ export default function App() {
               <div className="card-title">Mục tiêu của tôi</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <div className="settings-item">
+                  <span className="settings-label">Môn tập luyện</span>
+                  <span className="settings-value">
+                    {(profile.sports || ["run", "swim", "pickleball"]).map(s => s === "run" ? "Chạy bộ" : s === "swim" ? "Bơi lội" : s === "pickleball" ? "Pickleball" : "Đạp xe").join(", ")}
+                  </span>
+                </div>
+                <div className="settings-item">
                   <span className="settings-label">Cân nặng hiện tại</span>
                   <span className="settings-value">{profile.weight} kg</span>
                 </div>
@@ -1193,7 +1447,9 @@ export default function App() {
                 className="btn-complete" 
                 style={{ background: "transparent", border: "2px solid var(--accent-pickle)", color: "var(--accent-pickle)", marginTop: "16px", fontSize: "14px" }}
                 onClick={() => {
-                  setOnboardingProfile(profile);
+                  setOnboardingProfile({ ...profile, sports: profile.sports || ["run", "swim", "pickleball"] });
+                  setIsOnboardingMode(false);
+                  setRecreateScheduleOnSubmit(false);
                   setShowOnboarding(true);
                 }}
               >
@@ -1310,7 +1566,7 @@ export default function App() {
       {showOnboarding && (
         <div className="modal-overlay">
           <form className="modal-content" onSubmit={handleOnboardingSubmit}>
-            <h3>Thiết lập thông số giáo án</h3>
+            <h3>{isOnboardingMode ? "Thiết lập thông số giáo án" : "Chỉnh sửa thông số mục tiêu"}</h3>
             
             <div className="form-group">
               <label>HỌ VÀ TÊN HIỂN THỊ</label>
@@ -1324,6 +1580,52 @@ export default function App() {
             </div>
 
             <div className="form-group">
+              <label>CÁC MÔN THỂ THAO TẬP LUYỆN</label>
+              <div className="sports-checkbox-group" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginTop: "8px" }}>
+                {[
+                  { id: "run", label: "🏃 Chạy bộ (Running)" },
+                  { id: "swim", label: "🏊 Bơi lội (Swimming)" },
+                  { id: "pickleball", label: "🏓 Pickleball" },
+                  { id: "cycle", label: "🚴 Đạp xe (Cycling)" }
+                ].map(sport => {
+                  const checked = onboardingProfile.sports?.includes(sport.id) || false;
+                  return (
+                    <label 
+                      key={sport.id} 
+                      className={`sport-checkbox-card ${checked ? "active" : ""}`}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        padding: "10px",
+                        borderRadius: "8px",
+                        border: checked ? "1px solid var(--accent-color)" : "1px solid #2d3748",
+                        background: checked ? "rgba(16, 185, 129, 0.1)" : "rgba(25, 33, 50, 0.5)",
+                        cursor: "pointer",
+                        userSelect: "none"
+                      }}
+                    >
+                      <input 
+                        type="checkbox"
+                        checked={checked}
+                        style={{ marginRight: "8px", accentColor: "var(--accent-color)" }}
+                        onChange={(e) => {
+                          let newSports = [...(onboardingProfile.sports || [])];
+                          if (e.target.checked) {
+                            newSports.push(sport.id);
+                          } else {
+                            newSports = newSports.filter(s => s !== sport.id);
+                          }
+                          setOnboardingProfile({ ...onboardingProfile, sports: newSports });
+                        }}
+                      />
+                      <span>{sport.label}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+ 
+            <div className="form-group">
               <label>CÂN NẶNG HIỆN TẠI (KG)</label>
               <input 
                 type="number" 
@@ -1333,7 +1635,7 @@ export default function App() {
                 onChange={(e) => setOnboardingProfile({ ...onboardingProfile, weight: e.target.value })}
               />
             </div>
-
+ 
             <div className="form-group">
               <label>CÂN NẶNG MỤC TIÊU (KG)</label>
               <input 
@@ -1344,7 +1646,7 @@ export default function App() {
                 onChange={(e) => setOnboardingProfile({ ...onboardingProfile, targetWeight: e.target.value })}
               />
             </div>
-
+ 
             <div className="form-group">
               <label>PACE CHẠY MỤC TIÊU (VÍ DỤ: 4:30)</label>
               <input 
@@ -1356,9 +1658,30 @@ export default function App() {
               />
             </div>
 
-            <button type="submit" className="btn-complete" style={{ marginTop: "24px" }}>
-              Xác nhận và lưu mục tiêu
-            </button>
+            {!isOnboardingMode && (
+              <div className="form-group" style={{ marginTop: "16px" }}>
+                <label style={{ display: "flex", alignItems: "center", cursor: "pointer", fontWeight: "normal", fontSize: "14px", color: "var(--text-secondary)" }}>
+                  <input 
+                    type="checkbox"
+                    checked={recreateScheduleOnSubmit}
+                    onChange={(e) => setRecreateScheduleOnSubmit(e.target.checked)}
+                    style={{ marginRight: "8px", accentColor: "var(--accent-color)" }}
+                  />
+                  Tạo lại giáo án 8 tuần mới theo cấu hình này (xóa bài tập cũ)
+                </label>
+              </div>
+            )}
+ 
+            <div className="modal-buttons" style={{ marginTop: "24px", display: "flex", gap: "12px" }}>
+              {!isOnboardingMode && (
+                <button type="button" className="btn-cancel" style={{ flex: 1 }} onClick={() => setShowOnboarding(false)}>
+                  Hủy
+                </button>
+              )}
+              <button type="submit" className="btn-complete" style={{ flex: 2, padding: "12px" }}>
+                Xác nhận và lưu mục tiêu
+              </button>
+            </div>
           </form>
         </div>
       )}
